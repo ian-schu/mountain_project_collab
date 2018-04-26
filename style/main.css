@@ -4,12 +4,20 @@ html {
 	color: #fff;
 	background-color: #000;
 	font-size: 1rem;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-content: flex-start;
+}
+
+.section {
+	padding: 1rem;
+	margin: 0 0;
 }
 
 #route-finder {
 	background-color: #222;
 	width: 95%;
-	padding: 1rem;
 }
 
 .route-finder__input,
@@ -20,14 +28,41 @@ html {
 	width: 50%;
 }
 
+#results {
+	color: #000;
+	width: 95%;
+	background-color: lightgray;
+}
+
+.results__table {
+	width: 95%;
+}
+
+.results__table thead {
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
+.results__table tbody tr:nth-child(2n-1) {
+	background-color: white;
+}
+
 @media screen and (min-width: 700px) {
+	#results {
+		width: 58%;
+	}
+
 	#route-finder {
-		width: 40vw;
+		width: 32%;
 	}
 }
 
 @media screen and (min-width: 900px) {
+	#results {
+		width: 60%;
+	}
+
 	#route-finder {
-		width: 30vw;
+		width: 30%;
 	}
 }

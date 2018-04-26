@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style/main.css">
   </head>
   <body>
-    <section id="route-finder">
+    <section class="section" id="route-finder">
       <h2 class="route-finder__heading">Route Finder</h2>
       <p class="route-finder__text">
         Fill out the fields below and we'll make an intelligent recommendation on what you should climb.
@@ -16,12 +16,14 @@
       <input class="route-finder__input" type="text" name="user_id" value="">
       <label for="type">Route Type</label>
       <select class="route-finder__select" name="type">
+        <option value="" selected>Select one</option>
         <option value="Boulder">Boulder</option>
         <option value="Sport">Sport</option>
         <option value="Trad">Trad</option>
       </select>
       <label for="min-grade">Minimum Grade</label>
       <select class="route-finder__select" name="min-grade">
+          <option value="" selected>Select one</option>
           <option value="3rd class">3rd class</option>
           <option value="4th class">4th class</option>
           <option value="5.1">5.1</option>
@@ -60,6 +62,7 @@
       </select>
       <label for="max-grade">Maximum Grade</label>
       <select class="route-finder__select" name="max-grade">
+          <option value="" selected>Select one</option>
           <option value="3rd class">3rd class</option>
           <option value="4th class">4th class</option>
           <option value="5.1">5.1</option>
@@ -98,11 +101,13 @@
       </select>
       <label class="route-finder__label" for="pitches">No. Pitches</label>
       <select class="route-finder__select" name="pitches">
+        <option value="" selected>Select one</option>
         <option value="single">Single pitch</option>
         <option value="multi">Multi-pitch</option>
       </select>
       <label for="location">Location</label>
       <select class="route-finder__select" name="location">
+        <option value="" selected>Select one</option>
         <option value="Alaska">Alaska</option>
         <option value="Alabama">Alabama</option>
         <option value="Arkansas">Arkansas</option>
@@ -204,6 +209,50 @@
         </div>
       </fieldset>
     </section>
-
+    <section class="section" id="results">
+      <h2 class="results__heading">Recommended Routes</h2>
+      <table class="results__table">
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Grade</td>
+            <td>No. Pitches</td>
+            <td>Keywords</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>The Line</td>
+            <td>5.8</td>
+            <td>3</td>
+            <td>Juggy</td>
+          </tr>
+          <tr>
+            <td>The Nose</td>
+            <td>5.9</td>
+            <td>1</td>
+            <td>Crimpy, Slabby</td>
+          </tr>
+          <tr>
+            <td>Igor Unchained</td>
+            <td>5.9</td>
+            <td>2</td>
+            <td>Adventure, Scary, Stiff</td>
+          </tr>
+          <tr>
+            <td>Fear of Flying</td>
+            <td>5.10</td>
+            <td>5</td>
+            <td>Crack, Scary, Fun</td>
+          </tr>
+          <tr>
+            <td>Dead Cats</td>
+            <td>5.10c</td>
+            <td>1</td>
+            <td>Fun, Crimpy</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </body>
 </html>
