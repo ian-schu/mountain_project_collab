@@ -1,0 +1,33 @@
+body,
+html {
+	font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: #fff;
+	background-color: #000;
+	font-size: 1rem;
+}
+
+#route-finder {
+	background-color: #222;
+	width: 95%;
+	padding: 1rem;
+}
+
+.route-finder__input,
+.route-finder__select {
+	display: block;
+	font-size: 1rem;
+	margin: 0.2rem 0 1rem;
+	width: 50%;
+}
+
+@media screen and (min-width: 700px) {
+	#route-finder {
+		width: 40vw;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	#route-finder {
+		width: 30vw;
+	}
+}
