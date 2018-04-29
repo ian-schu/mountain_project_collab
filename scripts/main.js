@@ -15,11 +15,7 @@ function submitForm() {
 		// })
 	})
 		.then(response => {
-			if (response.length) {
-				return response.json();
-			} else {
-				return 'no content';
-			}
+			return response.json();
 		})
 		.then(output => {
 			console.log(output);
