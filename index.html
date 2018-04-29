@@ -8,21 +8,22 @@
   </head>
   <body>
     <section class="section" id="route-finder">
+      <form id="route-finder-form" method="get" action="http://18.221.10.29">
       <h2 class="route-finder__heading">Route Finder</h2>
       <p class="route-finder__text">
         Fill out the fields below and we'll make an intelligent recommendation on what you should climb.
       </p>
       <label class="route-finder__label" for="user_id">Mountain Project User ID</label>
-      <input class="route-finder__input" type="text" name="user_id" value="">
+      <input class="route-finder__input" type="number" id="user_id" name="user_id" value="">
       <label for="type">Route Type</label>
-      <select class="route-finder__select" name="type">
+      <select class="route-finder__select" id="type" name="type">
         <option value="" selected>Select one</option>
         <option value="Boulder">Boulder</option>
         <option value="Sport">Sport</option>
         <option value="Trad">Trad</option>
       </select>
       <label for="min-grade">Minimum Grade</label>
-      <select class="route-finder__select" name="min-grade">
+      <select class="route-finder__select" id="min-grade" name="min-grade">
           <option value="" selected>Select one</option>
           <option value="3rd class">3rd class</option>
           <option value="4th class">4th class</option>
@@ -61,7 +62,7 @@
           <option value="5.15d">5.15d</option>
       </select>
       <label for="max-grade">Maximum Grade</label>
-      <select class="route-finder__select" name="max-grade">
+      <select class="route-finder__select" id="max-grade" name="max-grade">
           <option value="" selected>Select one</option>
           <option value="3rd class">3rd class</option>
           <option value="4th class">4th class</option>
@@ -100,13 +101,13 @@
           <option value="5.15d">5.15d</option>
       </select>
       <label class="route-finder__label" for="pitches">No. Pitches</label>
-      <select class="route-finder__select" name="pitches">
+      <select class="route-finder__select" id="pitches" name="pitches">
         <option value="" selected>Select one</option>
         <option value="single">Single pitch</option>
         <option value="multi">Multi-pitch</option>
       </select>
       <label for="location">Location</label>
-      <select class="route-finder__select" name="location">
+      <select class="route-finder__select" id="location" name="location">
         <option value="" selected>Select one</option>
         <option value="Alaska">Alaska</option>
         <option value="Alabama">Alabama</option>
@@ -208,6 +209,8 @@
           <label for="crack">Crack</label>
         </div>
       </fieldset>
+      <button id="submit-button" class="route-finder__submit" type="button" name="button">Get Routes</button>
+    </form>
     </section>
     <section class="section" id="results">
       <h2 class="results__heading">Recommended Routes</h2>
@@ -254,5 +257,6 @@
         </tbody>
       </table>
     </section>
+    <script src="scripts/main.js" type="text/javascript" charset="utf-8"></script>
   </body>
 </html>

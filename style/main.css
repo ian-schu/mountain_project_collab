@@ -29,6 +29,20 @@ html {
 	width: 50%;
 }
 
+.route-finder__submit {
+	display: block;
+	margin: 1rem auto;
+	background-color: #336799;
+	color: white;
+	font-weight: bold;
+	padding: 0.3rem 0.7rem;
+	font-size: 1.3rem;
+}
+
+.route-finder__submit:hover {
+	background-color: #4fa9ff;
+}
+
 #results {
 	color: #000;
 	width: 95%;
