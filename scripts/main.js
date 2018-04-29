@@ -3,6 +3,10 @@ function getByID(id) {
 	return document.getElementById(id);
 }
 
+// DOM nodes
+let finderForm = getByID('route-finder-form');
+let submit = getByID('submit-button');
+
 // Form submission
 function submitForm() {
 	// let formData = new FormData(finderForm);
@@ -28,13 +32,12 @@ function submitForm() {
 		});
 }
 
-// DOM nodes
-let finderForm = getByID('route-finder-form');
-let submit = getByID('submit-button');
-
 // Listeners
 submit.addEventListener('click', ev => {
-	ev.preventDefault();
-
-	submitForm();
+	if (finderForm.checkValidity()) {
+		ev.preventDefault();
+		submitForm();
+	} else {
+		submit.click();
+	}
 });
