@@ -5,16 +5,22 @@ function getByID(id) {
 
 // Form submission
 function submitForm() {
-	let formData = new FormData(finderForm);
+	// let formData = new FormData(finderForm);
+	// let testPayload = { message: 'hi mom' };
+	// let data = new FormData();
+	// data.append('json', JSON.stringify(testPayload));
+
 	fetch(`http://18.221.10.29`, {
 		method: 'POST',
 		mode: 'cors',
-		body: formData,
+		body: JSON.stringify({ user_id: '12345' }),
 		headers: new Headers({
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'X-Requested-With': 'XMLHttpRequest'
 		})
 	})
 		.then(response => {
+			console.log(`Response is: ${JSON.stringify(response)}`);
 			return response.json();
 		})
 		.then(output => {
@@ -27,8 +33,8 @@ let finderForm = getByID('route-finder-form');
 let submit = getByID('submit-button');
 
 // Listeners
-submit.addEventListener('click', () => {
-	event.preventDefault();
+submit.addEventListener('click', ev => {
+	ev.preventDefault();
 
 	submitForm();
 });
