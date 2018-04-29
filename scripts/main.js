@@ -14,9 +14,11 @@ function submitForm() {
 			'Content-Type': 'application/json'
 		})
 	})
-		.then(function(response) {
+		.then(response => {
 			if (response.length) {
 				return response.json();
+			} else {
+				return 'no content';
 			}
 		})
 		.then(output => {
