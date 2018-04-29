@@ -8,7 +8,7 @@
   </head>
   <body>
     <section class="section" id="route-finder">
-      <form id="route-finder-form" method="get" action="http://18.221.10.29">
+      <form id="route-finder-form" method="POST" action="http://18.221.10.29">
       <h2 class="route-finder__heading">Route Finder</h2>
       <p class="route-finder__text">
         Fill out the fields below and we'll make an intelligent recommendation on what you should climb.
@@ -209,7 +209,7 @@
           <label for="crack">Crack</label>
         </div>
       </fieldset>
-      <button id="submit-button" class="route-finder__submit" type="button" name="button">Get Routes</button>
+      <button id="submit-button" class="route-finder__submit" type="submit" name="button">Get Routes</button>
     </form>
     </section>
     <section class="section" id="results">
