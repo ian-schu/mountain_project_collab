@@ -5,14 +5,14 @@ function getByID(id) {
 
 // Form submission
 function submitForm() {
-	// let formData = new FormData(finderForm);
-	fetch(`https://jsonplaceholder.typicode.com/posts/1`, {
-		method: 'GET',
-		mode: 'cors'
-		// body: formData,
-		// headers: new Headers({
-		// 	'Content-Type': 'application/json'
-		// })
+	let formData = new FormData(finderForm);
+	fetch(`http://18.221.10.29`, {
+		method: 'POST',
+		mode: 'cors',
+		body: formData,
+		headers: new Headers({
+			'Content-Type': 'application/json'
+		})
 	})
 		.then(response => {
 			return response.json();
