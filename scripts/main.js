@@ -87,7 +87,7 @@ function loadRoutes(routes_array) {
 		}</a></td>
     <td>${route.route_grade}</td>
     <td>${route.number_pitches}</td>
-    <td>${route.keywords.join(`, `)}</td>
+    <td>${route.keywords}</td>
     `;
 		resultsTable.appendChild(row);
 	}
