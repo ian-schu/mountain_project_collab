@@ -39,6 +39,11 @@ html {
 	font-size: 1.3rem;
 }
 
+.route-finder__submit--loading {
+	pointer-events: none;
+	background-color: #9e6916;
+}
+
 .route-finder__submit:hover {
 	background-color: #4fa9ff;
 }
@@ -60,6 +65,14 @@ html {
 
 .results__table tbody tr:nth-child(2n-1) {
 	background-color: white;
+}
+
+.results__table tr a {
+	color: #039;
+}
+
+.results__table tr a:hover {
+	color: #00194c;
 }
 
 @media screen and (min-width: 700px) {
