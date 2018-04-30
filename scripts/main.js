@@ -12,6 +12,10 @@ let finderForm = getByID('route-finder-form');
 let submit = getByID('submit-button');
 let resultsTable = getByID('the_results');
 let resultsHeading = getByID('the_results_heading');
+let typeSelect = getByID('type-select');
+let minSelect = getByID('min-grade');
+let maxSelect = getByID('max-grade');
+let locationSelect = getByID('location');
 
 ////////////////////////
 // FORM SUBMIT FUNCTION:
@@ -88,8 +92,23 @@ function resultsHeadingIsReady() {
 	resultsHeading.innerText = 'Recommended Routes';
 }
 
+function clearOptions(selectNode) {
+	selectNode.innerHTML = `
+  <option value="" selected>Select one</option>
+  `;
+}
+
+function populateOptions({ selectNode, optionArray }) {
+	for (let optionText of optionArray) {
+		let newOption = document.createElement('option');
+		newOption.value = optionText;
+		newOption.innerText = optionText;
+		selectNode.appendChild(newOption);
+	}
+}
+
 ////////////////////////
-// SUBMIT LISTENER: //
+// LISTENERS: //
 ////////////////////////
 submit.addEventListener('click', ev => {
 	if (finderForm.checkValidity()) {
@@ -99,3 +118,23 @@ submit.addEventListener('click', ev => {
 		submit.click();
 	}
 });
+
+typeSelect.addEventListener('input', ev => {
+	if (ev.target.value === 'Boulder') {
+		clearOptions(minSelect);
+		clearOptions(maxSelect);
+		populateOptions({ selectNode: minSelect, optionArray: boulderGrades });
+		populateOptions({ selectNode: maxSelect, optionArray: boulderGrades });
+	}
+	if (ev.target.value === 'Sport' || ev.target.value === 'Trad') {
+		clearOptions(minSelect);
+		clearOptions(maxSelect);
+		populateOptions({ selectNode: minSelect, optionArray: sportGrades });
+		populateOptions({ selectNode: maxSelect, optionArray: sportGrades });
+	}
+});
+
+////////////////////////
+// INIT CALLS: //
+////////////////////////
+populateOptions({ selectNode: locationSelect, optionArray: locations });
