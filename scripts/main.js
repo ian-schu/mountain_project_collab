@@ -35,15 +35,12 @@ function getRoutes() {
 		})
 	})
 		.then(response => {
-			console.log(`Response is: ${JSON.stringify(response)}`);
 			return response.json();
 		})
 		.then(output => {
-			console.log(output);
 			return output.top_10;
 		})
 		.then(routes => {
-			console.log(`Routes are: ${routes}`);
 			loadRoutes(routes);
 			submitIsReady();
 			resultsHeadingIsReady();
