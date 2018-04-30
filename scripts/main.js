@@ -16,9 +16,10 @@ let typeSelect = getByID('type-select');
 let minSelect = getByID('min-grade');
 let maxSelect = getByID('max-grade');
 let locationSelect = getByID('location');
+let keywordBlock = getByID('keywords');
 
 ////////////////////////
-// FORM SUBMIT FUNCTION:
+// FORM SUBMIT FUNCTIONS:
 ////////////////////////
 function getRoutes() {
 	// let formData = new FormData(finderForm);
@@ -107,6 +108,23 @@ function populateOptions({ selectNode, optionArray }) {
 	}
 }
 
+function populateKeywords({ selectNode, keywordArray }) {
+	for (let keyword of keywordArray) {
+		let newCheckbox = document.createElement('div');
+		newCheckbox.classList.add('route-finder__checkbox');
+
+		let keywordCaps = keyword.split('');
+		keywordCaps[0].toUpperCase();
+		keywordCaps = keywordCaps.join('');
+
+		newCheckbox.innerHTML = `
+    <input type="checkbox" id="${keyword}" name="${keyword}" value="${keyword}">
+    <label for="${keyword}">${keywordCaps}</label>
+    `;
+		selectNode.appendChild(newCheckbox);
+	}
+}
+
 ////////////////////////
 // LISTENERS: //
 ////////////////////////
@@ -138,3 +156,4 @@ typeSelect.addEventListener('input', ev => {
 // INIT CALLS: //
 ////////////////////////
 populateOptions({ selectNode: locationSelect, optionArray: locations });
+populateKeywords({ selectNode: keywordBlock, keywordArray: keywords });

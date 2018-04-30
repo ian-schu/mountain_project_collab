@@ -110,3 +110,17 @@ let locations = [
 	'West Virginia',
 	'Wyoming'
 ];
+
+let keywords = [
+	'Crimpy',
+	'Scary',
+	'Steep',
+	'Fun',
+	'Adventurous',
+	'Stiff',
+	'Juggy',
+	'Overhung',
+	'Smear',
+	'Chimney',
+	'Crack'
+];
