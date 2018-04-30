@@ -21,11 +21,29 @@ let keywordBlock = getByID('keywords');
 ////////////////////////
 // FORM SUBMIT FUNCTIONS:
 ////////////////////////
+
+function getFormData() {
+	let data = {
+		user_id: getByID('user_id').value,
+		type: typeSelect.value,
+		grade_low: minSelect.value,
+		grade_high: maxSelect.value,
+		number_pitches: getByID('pitches').value,
+		location: getByID('location').value,
+		keywords: []
+	};
+
+	let keywords = document.querySelectorAll('.route-finder__checkbox > input');
+	for (let input of keywords) {
+		if (input.checked) {
+			data.keywords.push(input.value);
+		}
+	}
+
+	return data;
+}
+
 function getRoutes() {
-	// let formData = new FormData(finderForm);
-	// let testPayload = { message: 'hi mom' };
-	// let data = new FormData();
-	// data.append('json', JSON.stringify(testPayload));
 	submitIsLoading();
 	resultsHeadingIsLoading();
 	clearRoutes();
@@ -33,7 +51,7 @@ function getRoutes() {
 	fetch(`http://18.221.10.29`, {
 		method: 'POST',
 		mode: 'cors',
-		body: JSON.stringify({ user_id: '12345' }),
+		body: getFormData(),
 		headers: new Headers({
 			'Content-Type': 'application/json',
 			'X-Requested-With': 'XMLHttpRequest'
@@ -94,9 +112,7 @@ function resultsHeadingIsReady() {
 }
 
 function clearOptions(selectNode) {
-	selectNode.innerHTML = `
-  <option value="" selected>Select one</option>
-  `;
+	selectNode.innerHTML = '';
 }
 
 function populateOptions({ selectNode, optionArray }) {
