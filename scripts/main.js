@@ -51,7 +51,7 @@ function getRoutes() {
 	fetch(`http://18.221.10.29`, {
 		method: 'POST',
 		mode: 'cors',
-		body: getFormData(),
+		body: JSON.stringify(getFormData()),
 		headers: new Headers({
 			'Content-Type': 'application/json',
 			'X-Requested-With': 'XMLHttpRequest'
