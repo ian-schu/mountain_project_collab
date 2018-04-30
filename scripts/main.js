@@ -160,11 +160,17 @@ typeSelect.addEventListener('input', ev => {
 		populateOptions({ selectNode: minSelect, optionArray: boulderGrades });
 		populateOptions({ selectNode: maxSelect, optionArray: boulderGrades });
 	}
-	if (ev.target.value === 'Sport' || ev.target.value === 'Trad') {
+	if (ev.target.value === 'Sport') {
 		clearOptions(minSelect);
 		clearOptions(maxSelect);
 		populateOptions({ selectNode: minSelect, optionArray: sportGrades });
 		populateOptions({ selectNode: maxSelect, optionArray: sportGrades });
+	}
+	if (ev.target.value === 'Trad') {
+		clearOptions(minSelect);
+		clearOptions(maxSelect);
+		populateOptions({ selectNode: minSelect, optionArray: tradGrades });
+		populateOptions({ selectNode: maxSelect, optionArray: tradGrades });
 	}
 });
 
