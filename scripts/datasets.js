@@ -1,6 +1,6 @@
 let sportPitches = ['single-pitch', 'multi-pitch'];
 
-let boulderPitches = ['no pitches'];
+let boulderPitches = ['single-pitch'];
 
 let sportGrades = [
 	'5.1',
