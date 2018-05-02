@@ -15,6 +15,7 @@ let resultsHeading = getByID('the_results_heading');
 let typeSelect = getByID('type-select');
 let minSelect = getByID('min-grade');
 let maxSelect = getByID('max-grade');
+let pitchSelect = getByID('pitches');
 let locationSelect = getByID('location');
 let keywordBlock = getByID('keywords');
 
@@ -159,6 +160,8 @@ typeSelect.addEventListener('input', ev => {
 		clearOptions(maxSelect);
 		populateOptions({ selectNode: minSelect, optionArray: boulderGrades });
 		populateOptions({ selectNode: maxSelect, optionArray: boulderGrades });
+		clearOptions(pitchSelect);
+		populateOptions({ selectNode: pitchSelect, optionArray: boulderPitches });
 	}
 	if (ev.target.value === 'Sport') {
 		clearOptions(minSelect);
@@ -171,6 +174,10 @@ typeSelect.addEventListener('input', ev => {
 		clearOptions(maxSelect);
 		populateOptions({ selectNode: minSelect, optionArray: tradGrades });
 		populateOptions({ selectNode: maxSelect, optionArray: tradGrades });
+	}
+	if (ev.target.value === 'Trad' || ev.target.value === 'Sport') {
+		clearOptions(pitchSelect);
+		populateOptions({ selectNode: pitchSelect, optionArray: sportPitches });
 	}
 });
 
