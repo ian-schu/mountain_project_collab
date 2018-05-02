@@ -59,6 +59,10 @@ function getRoutes() {
 		})
 	})
 		.then(response => {
+			console.log(`Response was: ${JSON.stringify(response)}`);
+			// if (response === 'no routes found') {
+			// 	console.log('this is a string');
+			// }
 			return response.json();
 		})
 		.then(output => {
@@ -89,6 +93,7 @@ function loadRoutes(routes_array) {
     <td>${route.route_grade}</td>
     <td>${route.number_pitches}</td>
     <td>${route.keywords}</td>
+    <td>${Number.parseFloat(route.estimated_stars).toFixed(1)}</td>
     `;
 		resultsTable.appendChild(row);
 	}
@@ -185,4 +190,4 @@ typeSelect.addEventListener('input', ev => {
 // INIT CALLS: //
 ////////////////////////
 populateOptions({ selectNode: locationSelect, optionArray: locations });
-populateKeywords({ selectNode: keywordBlock, keywordArray: keywords });
+// populateKeywords({ selectNode: keywordBlock, keywordArray: keywords });
