@@ -54,8 +54,9 @@ html {
 	background-color: lightgray;
 }
 
-.results__heading--loading, .results__heading--noroutes {
-	background-color: yellow
+.results__heading--loading,
+.results__heading--noroutes {
+	background-color: yellow;
 }
 
 .results__table {
@@ -77,6 +78,26 @@ html {
 
 .results__table tr a:hover {
 	color: #00194c;
+}
+
+.route-finder__about-heading {
+	line-height: 1rem;
+	margin-bottom: 0;
+	font-size: 1.1rem;
+}
+
+.route-finder__about {
+	font-size: 0.8rem;
+}
+
+.route-finder__about > a,
+.route-finder__about > a:visited {
+	color: #b2ffb4;
+	text-decoration: none;
+}
+
+.route-finder__about > a:hover {
+	color: aqua;
 }
 
 @media screen and (min-width: 700px) {
