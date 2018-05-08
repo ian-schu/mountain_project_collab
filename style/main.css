@@ -54,6 +54,10 @@ html {
 	background-color: lightgray;
 }
 
+.results__heading--loading, .results__heading--noroutes {
+	background-color: yellow
+}
+
 .results__table {
 	width: 95%;
 }

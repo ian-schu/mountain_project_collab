@@ -66,13 +66,18 @@ function getRoutes() {
 			return response.json();
 		})
 		.then(output => {
-			return output.top_10;
+			if (output.top_10) {
+				let routes = output.top_10
+				loadRoutes(routes);
+				submitIsReady();
+				resultsHeadingIsReady();
+				return output.top_10;
+			} else if (output.message === "no routes found") {
+				console.log(output.message)
+				resultsHeadingNoRoutesFound();
+				submitIsReady();
+			}
 		})
-		.then(routes => {
-			loadRoutes(routes);
-			submitIsReady();
-			resultsHeadingIsReady();
-		});
 }
 
 ////////////////////////
@@ -110,11 +115,20 @@ function submitIsReady() {
 }
 
 function resultsHeadingIsLoading() {
+	resultsHeading.classList.remove('results__heading--noroutes')
+	resultsHeading.classList.add('results__heading--loading')
 	resultsHeading.innerText = 'Loading ...';
 }
 
 function resultsHeadingIsReady() {
+	resultsHeading.classList.remove('results__heading--noroutes')
+	resultsHeading.classList.remove('results__heading--loading')
 	resultsHeading.innerText = 'Recommended Routes';
+}
+
+function resultsHeadingNoRoutesFound(){
+	resultsHeading.classList.add('results__heading--noroutes')
+	resultsHeading.innerText = "Oops! No routes found with that criteria"
 }
 
 function clearOptions(selectNode) {
