@@ -37,6 +37,7 @@ html {
 	font-weight: bold;
 	padding: 0.3rem 0.7rem;
 	font-size: 1.3rem;
+	cursor: pointer;
 }
 
 .route-finder__submit--loading {
