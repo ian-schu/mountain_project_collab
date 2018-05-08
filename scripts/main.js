@@ -18,6 +18,7 @@ let maxSelect = getByID('max-grade');
 let pitchSelect = getByID('pitches');
 let locationSelect = getByID('location');
 let keywordBlock = getByID('keywords');
+let resultDescription = getByID('the_results_description')
 
 ////////////////////////
 // FORM SUBMIT FUNCTIONS:
@@ -71,10 +72,12 @@ function getRoutes() {
 				loadRoutes(routes);
 				submitIsReady();
 				resultsHeadingIsReady();
+				addResultDescription();
 				return output.top_10;
 			} else if (output.message === "no routes found") {
 				console.log(output.message)
 				resultsHeadingNoRoutesFound();
+				clearResultDescription();
 				submitIsReady();
 			}
 		})
@@ -102,6 +105,20 @@ function loadRoutes(routes_array) {
     `;
 		resultsTable.appendChild(row);
 	}
+}
+
+function addResultDescription() {
+	let	user_id = getByID('user_id').value;
+	let	type = typeSelect.value;
+	let	grade_low= minSelect.value;
+	let	grade_high= maxSelect.value;
+	let	number_pitches= getByID('pitches').value;
+	let	location= getByID('location').value;
+	resultDescription.innerText = `Showing recommended ${number_pitches} ${type} routes in ${location} between ${grade_low} and ${grade_high}.`
+}
+
+function clearResultDescription() {
+	resultDescription.innerText = ""
 }
 
 function submitIsLoading() {
