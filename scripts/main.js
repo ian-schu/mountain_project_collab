@@ -18,7 +18,7 @@ let maxSelect = getByID('max-grade');
 let pitchSelect = getByID('pitches');
 let locationSelect = getByID('location');
 let keywordBlock = getByID('keywords');
-let resultDescription = getByID('the_results_description')
+let resultDescription = getByID('the_results_description');
 
 ////////////////////////
 // FORM SUBMIT FUNCTIONS:
@@ -26,7 +26,7 @@ let resultDescription = getByID('the_results_description')
 
 function getFormData() {
 	let data = {
-		user_id: getByID('user_id').value,
+		user_id: getByID('user_id').value || '123',
 		type: typeSelect.value,
 		grade_low: minSelect.value,
 		grade_high: maxSelect.value,
@@ -68,19 +68,19 @@ function getRoutes() {
 		})
 		.then(output => {
 			if (output.top_10) {
-				let routes = output.top_10
+				let routes = output.top_10;
 				loadRoutes(routes);
 				submitIsReady();
 				resultsHeadingIsReady();
 				addResultDescription();
 				return output.top_10;
-			} else if (output.message === "no routes found") {
-				console.log(output.message)
+			} else if (output.message === 'no routes found') {
+				console.log(output.message);
 				resultsHeadingNoRoutesFound();
 				clearResultDescription();
 				submitIsReady();
 			}
-		})
+		});
 }
 
 ////////////////////////
@@ -108,17 +108,17 @@ function loadRoutes(routes_array) {
 }
 
 function addResultDescription() {
-	let	user_id = getByID('user_id').value;
-	let	type = typeSelect.value;
-	let	grade_low= minSelect.value;
-	let	grade_high= maxSelect.value;
-	let	number_pitches= getByID('pitches').value;
-	let	location= getByID('location').value;
-	resultDescription.innerText = `Showing recommended ${number_pitches} ${type} routes in ${location} between ${grade_low} and ${grade_high}.`
+	let user_id = getByID('user_id').value;
+	let type = typeSelect.value;
+	let grade_low = minSelect.value;
+	let grade_high = maxSelect.value;
+	let number_pitches = getByID('pitches').value;
+	let location = getByID('location').value;
+	resultDescription.innerText = `Showing recommended ${number_pitches} ${type} routes in ${location} between ${grade_low} and ${grade_high}.`;
 }
 
 function clearResultDescription() {
-	resultDescription.innerText = ""
+	resultDescription.innerText = '';
 }
 
 function submitIsLoading() {
@@ -132,20 +132,20 @@ function submitIsReady() {
 }
 
 function resultsHeadingIsLoading() {
-	resultsHeading.classList.remove('results__heading--noroutes')
-	resultsHeading.classList.add('results__heading--loading')
+	resultsHeading.classList.remove('results__heading--noroutes');
+	resultsHeading.classList.add('results__heading--loading');
 	resultsHeading.innerText = 'Loading ...';
 }
 
 function resultsHeadingIsReady() {
-	resultsHeading.classList.remove('results__heading--noroutes')
-	resultsHeading.classList.remove('results__heading--loading')
+	resultsHeading.classList.remove('results__heading--noroutes');
+	resultsHeading.classList.remove('results__heading--loading');
 	resultsHeading.innerText = 'Recommended Routes';
 }
 
-function resultsHeadingNoRoutesFound(){
-	resultsHeading.classList.add('results__heading--noroutes')
-	resultsHeading.innerText = "Oops! No routes found with that criteria"
+function resultsHeadingNoRoutesFound() {
+	resultsHeading.classList.add('results__heading--noroutes');
+	resultsHeading.innerText = 'Oops! No routes found with that criteria';
 }
 
 function clearOptions(selectNode) {
