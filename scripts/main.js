@@ -50,7 +50,7 @@ function getRoutes() {
 	resultsHeadingIsLoading();
 	clearRoutes();
 
-	fetch(`http://18.219.7.103`, {
+	fetch(`http://172.31.18.9`, {
 		method: 'POST',
 		mode: 'cors',
 		body: JSON.stringify(getFormData()),
